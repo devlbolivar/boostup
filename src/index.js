@@ -4,6 +4,8 @@ import { render } from "react-dom";
 import App from "./App";
 import { store } from "./store/store";
 import reportWebVitals from "./reportWebVitals";
+import "semantic-ui-css/semantic.min.css";
+import "./index.css";
 
 render(
   <Provider store={store}>

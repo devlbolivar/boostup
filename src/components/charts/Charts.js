@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDataCovidStates } from "../../apis/api";
+import { setDate } from "../../actions/data";
 import { Bar } from "react-chartjs-2";
 
 function Charts() {
@@ -34,17 +35,18 @@ function Charts() {
   };
 
   const dispatch = useDispatch();
-  const [date, setDate] = useState("");
+  const [dateSelected, setDateSelected] = useState("");
 
   useEffect(() => {
-    dispatch(getDataCovidStates(date));
-  }, [date]);
+    dispatch(getDataCovidStates(dateSelected));
+  }, [dateSelected]);
 
   const getElementAtEvent = (element) => {
     if (!element.length) return;
 
     const { index } = element[0];
-    setDate(dataInfo.labels[index]);
+    dispatch(setDate(dataInfo.labels[index]));
+    setDateSelected(dataInfo.labels[index]);
   };
 
   return (

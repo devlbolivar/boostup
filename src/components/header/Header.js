@@ -1,8 +1,13 @@
+import { Header as HeaderSm, Icon } from "semantic-ui-react";
+
 export default function Header() {
   return (
-    <header>
-      <h1>Pandemic histogram</h1>
-      <p>Filter: </p>
-    </header>
+    <HeaderSm as="h2">
+      <Icon name="chart bar" />
+      <HeaderSm.Content>
+        Covid19
+        <HeaderSm.Subheader>Pandemic Histogram</HeaderSm.Subheader>
+      </HeaderSm.Content>
+    </HeaderSm>
   );
 }

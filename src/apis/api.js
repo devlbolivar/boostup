@@ -1,4 +1,5 @@
 import { getData, getDataStates } from "../actions/data";
+import { offLoading } from "../actions/loader";
 const apiKey = "ea3cc0b36cf341818e81ef2d5b2a6618";
 export const getInfoCovid = (filter) => {
   return (dispatch) => {
@@ -11,6 +12,7 @@ export const getInfoCovid = (filter) => {
       .then(({ actualsTimeseries }) => {
         const filteredData = processData(actualsTimeseries, filter);
         dispatch(getData(filteredData));
+        dispatch(offLoading());
       });
   };
 };
@@ -34,7 +36,6 @@ export const getDataCovidStates = (date) => {
           };
           return infoState;
         });
-
         dispatch(getDataStates(arrayStates));
       });
   };

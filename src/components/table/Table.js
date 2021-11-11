@@ -1,14 +1,42 @@
 import React from "react";
-import HeaderTable from "./HeaderTable";
-import BodyTable from "./BodyTable";
+import { useSelector } from "react-redux";
+import { Header, Table } from "semantic-ui-react";
+import { statesNames } from "../../utils";
 
-function Table() {
+const TablePadded = () => {
+  const { dataStates } = useSelector((state) => state.data);
+
   return (
-    <table>
-      <HeaderTable />
-      <BodyTable />
-    </table>
-  );
-}
+    <Table celled padded>
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell singleLine textAlign="center">
+            State
+          </Table.HeaderCell>
+          <Table.HeaderCell singleLine textAlign="center">
+            Number of confirmed cases
+          </Table.HeaderCell>
+          <Table.HeaderCell singleLine textAlign="center">
+            Number of deaths
+          </Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
 
-export default Table;
+      <Table.Body>
+        {dataStates.map((state) => {
+          return (
+            <Table.Row key={state.state}>
+              <Table.Cell textAlign="center">
+                {statesNames[state.state]}
+              </Table.Cell>
+              <Table.Cell textAlign="center">{state.serie?.cases}</Table.Cell>
+              <Table.Cell textAlign="center">{state.serie?.deaths}</Table.Cell>
+            </Table.Row>
+          );
+        })}
+      </Table.Body>
+    </Table>
+  );
+};
+
+export default TablePadded;
