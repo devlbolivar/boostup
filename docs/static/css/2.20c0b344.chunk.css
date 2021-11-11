@@ -5209,12 +5209,12 @@ a.ui.inverted.grey.header:hover {
  */
 @font-face {
   font-family: Icons;
-  src: url(./static/media/icons.a01e3f2d.eot);
-  src: url(./static/media/icons.a01e3f2d.eot?#iefix) format("embedded-opentype"),
-    url(./static/media/icons.38c6d8ba.woff2) format("woff2"),
-    url(./static/media/icons.425399f8.woff) format("woff"),
-    url(./static/media/icons.c656b8ca.ttf) format("truetype"),
-    url(./static/media/icons.62d9dae4.svg#icons) format("svg");
+  src: url(../media/icons.a01e3f2d.eot);
+  src: url(../media/icons.a01e3f2d.eot?#iefix) format("embedded-opentype"),
+    url(../media/icons.38c6d8ba.woff2) format("woff2"),
+    url(../media/icons.425399f8.woff) format("woff"),
+    url(../media/icons.c656b8ca.ttf) format("truetype"),
+    url(../media/icons.62d9dae4.svg#icons) format("svg");
   font-style: normal;
   font-weight: 400;
   font-variant: normal;
